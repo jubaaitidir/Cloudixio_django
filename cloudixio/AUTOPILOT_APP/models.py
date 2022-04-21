@@ -20,7 +20,7 @@ class TimeSheet(models.Model):
     idTimeSheet = models.fields.BigAutoField(primary_key=True, null=False)
     idMission = models.ForeignKey(Mission, null=True, on_delete=models.SET_NULL)
     idConsultant = models.ForeignKey(Consultant, null=True, on_delete=models.SET_NULL)
-    annee = models.fields.SmallIntegerField(choices=[(r,r) for r in range(2000, datetime.date.today().year)])
+    annee = models.fields.SmallIntegerField(choices=[(r,r) for r in range(2000, datetime.date.today().year+30)])
     semaine = models.fields.SmallIntegerField(choices=[(r,r) for r in range(1,53)])
     
 
