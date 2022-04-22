@@ -1,0 +1,11 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+{%block content%}
+    <h1>Liste des consultants</h1>
+    <ul>
+        {%for consultant in consultants%}
+        <li>nom: {{consultant.nom | upper}} prenom:<strong> {{consultant.prenom}} </strong></li>
+        {%endfor%}
+
+    </ul>
+
+{%endblock%}    
