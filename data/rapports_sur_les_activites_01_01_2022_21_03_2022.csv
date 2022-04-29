@@ -1,0 +1,45 @@
+﻿ Nom complet;Département;Code Clients;Nom Clients;Code Projet/Régie;Nom Projet/Régie;Code Phase/Mission;Nom Phase/Mission;Code Tâche;Nom Tâche;Date de début;Date de fin;Temps imputé (Jours)
+"Eric Ceyral";"CONSEIL";18;ISAI;181;BMAT - DD;1811;BMAT - DD;"";"";01/01/2022;21/03/2022;7,75
+"Eric Ceyral";"CONSEIL";58;Lares;581;VDD Lares;5811;VDD Lares;"";"";01/01/2022;21/03/2022;13,25
+"Eric Ceyral";"CONSEIL";1;Cloudixio;15;Avant-vente/commercial;151;Avant-vente/commercial;"";"";01/01/2022;21/03/2022;1,75
+"Eric Ceyral";"CONSEIL";1;Cloudixio;17;Projet interne;172;ERP interne;"";"";01/01/2022;21/03/2022;7
+"Eric Ceyral";"CONSEIL";170;Pandat;1702;Pandat - Base de Deals;17021;Design Sprint;"";"";01/01/2022;21/03/2022;5,75
+"Eric Ceyral";"CONSEIL";192;Marsh SAS;1921;Marsh Cadrage SAM;19211;Cadrage;"";"";01/01/2022;21/03/2022;0,5
+"Nicolas Entressangle";"DELIVERY";155;Les Compagnons;1551;Pilotage DSI Les Compagnons;15511;PMO NEN;155111;Application Hébergement et restauration (rédaction CDC, atelier);01/01/2022;21/03/2022;12,5
+"Nicolas Entressangle";"DELIVERY";155;Les Compagnons;1551;Pilotage DSI Les Compagnons;15511;PMO NEN;155113;Parcours de formation;01/01/2022;21/03/2022;1
+"Nicolas Entressangle";"DELIVERY";1;Cloudixio;12;Partenariat Leapwork;121;Formation Leapwork;"";"";01/01/2022;21/03/2022;6
+"Nicolas Entressangle";"DELIVERY";3;Hors Smart-Capital/ Cloudixio;31;Hors Smart-Capital / CloudixIO;311;Hors Smart-Capital / CloudixIO;3111;Hors SmartCapital / CloudixIO;01/01/2022;21/03/2022;1
+"Nicolas Entressangle";"DELIVERY";155;Les Compagnons;1551;Pilotage DSI Les Compagnons;15511;PMO NEN;155112;Application Changement de ville (recette);01/01/2022;21/03/2022;0,5
+"Nicolas Entressangle";"DELIVERY";61;STA;611;STA - Air France;6111;Business Analyst NEN;"";"";01/01/2022;21/03/2022;25,5
+"Olivia Faraut";"SOFTWARE";1;Cloudixio;13;BU Software;132;Westaff;"";"";01/01/2022;21/03/2022;14,75
+"Olivia Faraut";"SOFTWARE";1;Cloudixio;13;BU Software;134;Smart Toolbox;"";"";01/01/2022;21/03/2022;11,25
+"Olivia Faraut";"SOFTWARE";65;Trajan Capital;651;Kraft - DD digitale;6511;Kraft - Due Diligence Digitale;"";"";01/01/2022;21/03/2022;9,5
+"Cécile Prayer";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171111;KT Project Office;01/01/2022;21/03/2022;11,25
+"Cécile Prayer";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171113;KT S4M  Conversion to S/4;01/01/2022;21/03/2022;26,5
+"Cécile Prayer";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171114;KT SAP Smart ToolBox;01/01/2022;21/03/2022;2,25
+"Jorge Regada";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171113;KT S4M  Conversion to S/4;01/01/2022;21/03/2022;19
+"Jorge Regada";"DELIVERY";3;Hors Smart-Capital/ Cloudixio;31;Hors Smart-Capital / CloudixIO;311;Hors Smart-Capital / CloudixIO;3111;Hors SmartCapital / CloudixIO;01/01/2022;21/03/2022;8
+"Olivier Ricart";"CONSEIL";65;Trajan Capital;651;Kraft - DD digitale;6511;Kraft - Due Diligence Digitale;"";"";01/01/2022;21/03/2022;4,5
+"Olivier Ricart";"CONSEIL";130;OneManSupport;1301;Groupe Bourdoncle;13011;Structuration fonction IT;"";"";01/01/2022;21/03/2022;13
+"Olivier Ricart";"CONSEIL";30;Jutheau Husson;301;Assistance DSI;3011;Assistance DSI OR;"";"";01/01/2022;21/03/2022;15,5
+"Olivier Ricart";"CONSEIL";1;Cloudixio;16;Recrutement - RH;161;Recrutement - RH;"";"";01/01/2022;21/03/2022;2
+"Olivier Ricart";"CONSEIL";1;Cloudixio;13;BU Software;132;Westaff;"";"";01/01/2022;21/03/2022;3,25
+"Olivier Ricart";"CONSEIL";1;Cloudixio;18;Marketing;182;Marketing;"";"";01/01/2022;21/03/2022;2,5
+"Olivier Ricart";"CONSEIL";1;Cloudixio;15;Avant-vente/commercial;151;Avant-vente/commercial;"";"";01/01/2022;21/03/2022;0,25
+"Raymond Salmon";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171113;KT S4M  Conversion to S/4;01/01/2022;21/03/2022;24,5
+"Raymond Salmon";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171114;KT SAP Smart ToolBox;01/01/2022;21/03/2022;16,5
+"Léonard Sené";"DELIVERY";1;Cloudixio;12;Partenariat Leapwork;121;Formation Leapwork;"";"";01/01/2022;21/03/2022;2,5
+"Léonard Sené";"DELIVERY";1;Cloudixio;13;BU Software;134;Smart Toolbox;"";"";01/01/2022;21/03/2022;30,5
+"Marc-Antoine Sené";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171114;KT SAP Smart ToolBox;01/01/2022;21/03/2022;2,75
+"Marc-Antoine Sené";"DELIVERY";171;Kering Tech ;1711;KT Project Framework;17111;KT Project Framework;171113;KT S4M  Conversion to S/4;01/01/2022;21/03/2022;7,5
+"Marc-Antoine Sené";"DELIVERY";59;Soletanche Freyssinet;591;Harmony Light Deployment;5911;Discovery Phase;"";"";01/01/2022;21/03/2022;22,75
+"Pierre Sordoillet";"DELIVERY";155;Les Compagnons;1551;Pilotage DSI Les Compagnons;15512;Consultant PSO;"";"";01/01/2022;21/03/2022;21
+"Damien Tardieu";"CONSEIL";30;Jutheau Husson;301;Assistance DSI;3012;Mission projet JHSI - DT;"";"";01/01/2022;21/03/2022;40
+"Aurélien Vion";"DELIVERY";170;Pandat;1701;Mise en place roadmap Pandat;17012;Chef de projet AVI;"";"";01/01/2022;21/03/2022;43
+"Aurélien Vion";"DELIVERY";1;Cloudixio;17;Projet interne;171;Lucca;"";"";01/01/2022;21/03/2022;1,75
+"Aurélien Vion";"DELIVERY";1;Cloudixio;15;Avant-vente/commercial;151;Avant-vente/commercial;"";"";01/01/2022;21/03/2022;1
+"Aurélien Vion";"DELIVERY";1;Cloudixio;11;BU CRM;111;Partenariat HubSpot;1111;Mise en place partenariat HubSpot;01/01/2022;21/03/2022;0,75
+"Aurélien Vion";"DELIVERY";1;Cloudixio;16;Recrutement - RH;162;Management;"";"";01/01/2022;21/03/2022;0,25
+"Aurélien Vion";"DELIVERY";1;Cloudixio;11;BU CRM;112;Lancement BU CRM;"";"";01/01/2022;21/03/2022;0,25
+"Aurélien Vion";"DELIVERY";170;Pandat;1702;Pandat - Base de Deals;17021;Design Sprint;"";"";01/01/2022;21/03/2022;1
+"Aurélien Vion";"DELIVERY";1;Cloudixio;12;Partenariat Leapwork;122;Gestion partenariat Leapwork;"";"";01/01/2022;21/03/2022;0,5
