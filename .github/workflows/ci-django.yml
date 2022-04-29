@@ -45,4 +45,4 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        wc -l ./cloudixio/cloudixio/*.py ./cloudixio/AUTOPILOT_APP/*.py ./cloudixio/AUTOPILOT_APP/templates/polls/*.html 
+        wc -l ./cloudixio/cloudixio/*.py ./cloudixio/AUTOPILOT_APP/*.py ./cloudixio/AUTOPILOT_APP/templates/AUTOPILOT_APP/*.html 
