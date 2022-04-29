@@ -4,6 +4,11 @@
     <ul>
         {%for consultant in consultants%}
         <li>nom: {{consultant.nom | upper}} prenom:<strong> {{consultant.prenom}} </strong></li>
+            {%for timesheet in consultant.timesheet_set.all%}
+            <ul>
+                <li>id timesheet: {{timesheet.idTimeSheet}} annee:<strong> {{timesheet.annee}} </strong>  semaine:<strong> {{timesheet.semaine}} </strong></li>
+            </ul>
+            {%endfor%}
         {%endfor%}
 
     </ul>
