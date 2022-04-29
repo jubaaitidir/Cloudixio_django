@@ -1,0 +1,10 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+{%block content%}
+    <h1>Liste des timesheets</h1>
+    <ul>
+        {%for sheet in timesheets%}
+        <li>identifiant: {{sheet.idTimeSheet | upper}} startDate:<strong> {{sheet.annee}}</strong> semaine:<strong>{{sheet.semaine}}</strong></li>
+        {%endfor%}
+    </ul>
+
+{%endblock%} 

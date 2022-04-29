@@ -22,5 +22,8 @@ from AUTOPILOT_APP import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello),
-    path('about-us/', views.about)
+    path('about-us/', views.about),
+    path('consultants/', views.consultant),
+    path('missions/', views.mission),
+    path('timesheets/', views.timeSheet)
 ]

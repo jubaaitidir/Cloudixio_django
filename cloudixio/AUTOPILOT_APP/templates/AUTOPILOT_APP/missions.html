@@ -1,0 +1,15 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+{%block content%}
+    <h1>Liste des missions</h1>
+    <ul>
+        {%for mission in missions%}
+        <li>identifiant: {{mission.idMission | upper}} startDate:<strong> {{mission.startDate}}</strong> endDate:<strong> {{mission.endDate}}</strong></li>
+            {%for timesheet in mission.timesheet_set.all%}
+            <ul>
+                <li>id timesheet: {{timesheet.idTimeSheet}} annee:<strong> {{timesheet.annee}} </strong>  semaine:<strong> {{timesheet.semaine}} </strong></li>
+            </ul>
+            {%endfor%}
+        {%endfor%}
+    </ul>
+
+{%endblock%} 
