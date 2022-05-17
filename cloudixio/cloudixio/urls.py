@@ -15,7 +15,7 @@ Including another URLconf
 
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from AUTOPILOT_APP import views
 
 
@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello),
     path('about-us/', views.about),
-    path('consultants/', views.consultant),
-    path('missions/', views.mission),
-    path('timesheets/', views.timeSheet)
+    path('', include('AUTOPILOT_APP.urls')),
+    # path('missions/', views.mission),
+    # path('timesheets/', views.timeSheet)
 ]

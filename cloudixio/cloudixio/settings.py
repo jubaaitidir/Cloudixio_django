@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'AUTOPILOT_APP',
+    'AUTOPILOT_APP.apps.AutopilotAppConfig',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [

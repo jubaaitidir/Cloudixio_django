@@ -1,0 +1,48 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+<!-- {% load bootstrap5 %} -->
+
+{% block bootstrap5_content %}
+<div class="container">
+    <h1>{% block title %}Timesheet du consultant{% endblock %}</h1>
+
+
+    <div class="container">
+        <div class="row bg-success text-light h1">
+            <div class="col">{{consultant.nom}}</div>
+            <div class="col">{{consultant.prenom}}</div>
+        </div>
+        <div class="row">
+            
+            <table class="table table-light table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID Mission</th>
+                        <th scope="col">Annee</th>
+                        <th scope="col">Semaine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for ts in consultant.timesheet_set.all %}
+
+                    <tr>
+                        <th scope="row">{{ts.idMission_id}}</th>
+                        <td>{{ts.annee}}</td>
+                        <td>{{ts.semaine}}</td>
+
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+
+
+{% endblock %}

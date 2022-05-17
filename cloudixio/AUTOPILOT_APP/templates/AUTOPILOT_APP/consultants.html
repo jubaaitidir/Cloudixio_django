@@ -1,16 +1,38 @@
 {%extends 'AUTOPILOT_APP/base.html'%}
-{%block content%}
-    <h1>Liste des consultants</h1>
-    <ul>
-        {%for consultant in consultants%}
-        <li>nom: {{consultant.nom | upper}} prenom:<strong> {{consultant.prenom}} </strong></li>
-            {%for timesheet in consultant.timesheet_set.all%}
-            <ul>
-                <li>id timesheet: {{timesheet.idTimeSheet}} annee:<strong> {{timesheet.annee}} </strong>  semaine:<strong> {{timesheet.semaine}} </strong></li>
-            </ul>
+
+<!-- {% load bootstrap5 %} -->
+
+{% block bootstrap5_content %}
+<div class="container">
+    <h1>{% block title %}Consultants{% endblock %}</h1>
+    <table id="ma_table" class="table table-primary table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID Consultant</th>
+                <th scope="col">nom</th>
+                <th scope="col">prenom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for consultant in consultants %}
+            <tr class="clickable" data-url="{% url 'autopilot_app:detail' consultant.idConsultant %}"> 
+                <th scope="row">{{consultant.idConsultant}}</th>
+                <td>{{consultant.nom}}</td>
+                <td>{{consultant.prenom}}</td>
+
+            </tr>
             {%endfor%}
-        {%endfor%}
 
-    </ul>
+        </tbody>
+    </table>
+</div>
 
-{%endblock%}    
+
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+</div>
+
+{% endblock %}

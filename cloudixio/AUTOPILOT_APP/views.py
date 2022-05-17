@@ -21,12 +21,16 @@ def consultant(request):
     consultants= Consultant.objects.all()
     return render(request, 'AUTOPILOT_APP/consultants.html',{'consultants':consultants})
 
+def detail(request, consultant_id):
+    consultant_by_id= Consultant.objects.get(pk=consultant_id)
+    return render(request, 'AUTOPILOT_APP/detail.html',{'consultant':consultant_by_id})
 
-def mission(request):
+
+def mission(request,mission_id):
     missions=Mission.objects.all()
     return render(request,'AUTOPILOT_APP/missions.html',{'missions':missions})
 
 
-def timeSheet(request):
+def timeSheet(request, timesheet_id):
     timesheets= TimeSheet.objects.all()
     return render(request,'AUTOPILOT_APP/timesheets.html',{'timesheets':timesheets})
