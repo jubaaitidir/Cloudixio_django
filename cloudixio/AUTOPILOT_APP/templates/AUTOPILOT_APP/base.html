@@ -8,22 +8,31 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+
+
 {% load bootstrap5 %}
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% block bootstrap5_content %}{%endblock%}
-{%block content%}{%endblock%}
 
 <script>
-   /** $(function () {
-        $('table tbody tr').click(function() {
-            window.location.href = $(this).data('url');
-            console.log(window.location.href);
-        });
-    }) **/
-    $('table').on('click', 'tbody tr', function(event) {
+
+    $('#consultant_timesheets').on('click', 'tbody tr', function(event) {
+        window.location.href = $(this).data('url');
+        console.log(window.location.href);
+    });
+
+    $('#list_timesheets').on('click', 'tbody tr', function(event) {
+        window.location.href = $(this).data('url');
+        console.log(window.location.href);
+    });
+    $('#list_missions').on('click', 'tbody tr', function(event) {
+        window.location.href = $(this).data('url');
+        console.log(window.location.href);
+    });
+    $('#list_consultants').on('click', 'tbody tr', function(event) {
         window.location.href = $(this).data('url');
         console.log(window.location.href);
     });

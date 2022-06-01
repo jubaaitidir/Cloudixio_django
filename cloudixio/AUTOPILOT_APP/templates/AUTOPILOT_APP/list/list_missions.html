@@ -1,0 +1,40 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+<!-- {% load bootstrap5 %} -->
+
+{% block bootstrap5_content %}
+<div class="container">
+    <h1>{% block title %}{{titre}}{% endblock %}</h1>
+    <table id="list_missions" class="table table-info table-hover table-striped">
+        <thead>
+            <tr>
+           
+                <th scope="col">ID Mission</th>
+                <th scope="col">Nom Mission</th>
+                <th scope="col">Date d'ouverture</th>
+                <th scope="col">Date de clôture</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for mission in missions %}
+            <tr class="clickable" data-url="{% url 'autopilot_app:mission_detail' mission.idMission %}"> 
+                <th scope="row">{{mission.idMission}}</th>
+                <th scope="row">{{mission.nomMission}}</th>
+                <td>{{mission.startDate}}</td>
+                <td>{{mission.endDate}}</td>
+
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+
+{% endblock %}

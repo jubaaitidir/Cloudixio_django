@@ -1,0 +1,36 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+{% load static %}
+{% load bootstrap5 %}
+
+
+{% block bootstrap5_content %}
+
+<div class="container justify-content-center bg-primary bg-gradient" style="--bs-bg-opacity: .9;">
+    <div class="row my-5 py-3  justify-content-center">
+        <div class="d-flex fs-1 text-light justify-content-center">{%block title%}{{context.message|upper}}{%endblock%}</div>
+        <div class="d-flex py-2 my-5 align-content-center col-sm-10 col-md-6 text-light justify-content-center">
+            <img src= "{% static 'AUTOPILOT_APP/logo_cloudixIO.png' %}" class="rounded mx-auto d-block" alt="...">
+        </div>
+        <div class="col-sm-10 col-md-6 text-light">
+            
+            <h3 class="text-danger">{{context.error}}</h3>
+            <form action="/inscription/" method="post">
+                {% csrf_token %}
+                {% load crispy_forms_tags %} 
+                {{context.form|crispy}}
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-success d-flex justify-content-center">s'inscrire</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+
+{% endblock %}

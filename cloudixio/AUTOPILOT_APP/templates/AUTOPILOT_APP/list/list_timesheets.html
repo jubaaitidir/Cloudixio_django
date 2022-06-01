@@ -1,0 +1,69 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+{% load bootstrap5 %}
+
+{% block bootstrap5_content %}
+<div class="text-center h2">{% block title %}{{titre}}{% endblock %}</div>
+<div class="container ">
+    
+    <div class="row ">
+        
+        <div class="col justify-content-center">
+            {% csrf_token %}
+            {{form.idConsultant}}
+        </div>
+        <div class="col justify-content-center">
+            {% csrf_token %}
+            {{form.idMission}}
+        </div>
+        <div class="col justify-content-center">
+            {% csrf_token %}
+            {{form.annee}}
+        </div>
+        <div class="col justify-content-center">
+            {% csrf_token %}
+            {{form.semaine}}
+        </div>
+        <div class="col justify-content-center">
+            {% csrf_token %}
+            {{form.tempsPasse}}
+        </div>
+    </div>
+    <div class="row">
+        <table id="list_timesheets" class="table table-success table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID Timesheet</th>
+                    <th scope="col">Consultant</th>
+                    <th scope="col">Mission</th>
+                    <th scope="col">Annee</th>
+                    <th scope="col">Semaine</th>
+                    <th scope="col">Temps passé</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for timesheet in timesheets %}
+                <tr class="clickable"
+                    data-url="{% url 'autopilot_app:consultantTimesheets' timesheet.idConsultant.idConsultant %}">
+                    <th scope="row">{{timesheet.idTimeSheet}}</th>
+                    <td>{{timesheet.idConsultant}}</td>
+                    <td>{{timesheet.idMission}}</td>
+                    <td>{{timesheet.annee}}</td>
+                    <td>{{timesheet.semaine}}</td>
+                    <td>{{timesheet.tempsPasse}}</td>
+
+                </tr>
+                {%endfor%}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+{% endblock %}

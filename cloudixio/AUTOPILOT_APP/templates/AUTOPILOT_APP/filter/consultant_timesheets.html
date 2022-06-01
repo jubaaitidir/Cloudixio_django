@@ -1,0 +1,50 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+{% load bootstrap5 %}
+
+{% block bootstrap5_content %}
+<div class="container">
+    <h1>{% block title %}Timesheets du consultant{% endblock %}</h1>
+
+
+    <div class="container">
+        <div class="row bg-success text-light h1">
+            <div class="col">{{consultant.nom}}</div>
+            <div class="col">{{consultant.prenom}}</div>
+        </div>
+        <div class="row">
+            
+            <table class="table table-success table-hover table-striped" id="consultant_timesheets">
+                <thead>
+                    <tr>
+                        <th scope="col">ID Mission</th>
+                        <th >Annee</th>
+                        <th >Semaine</th>
+                        <th >Temps passé</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for ts in consultant.timesheet_set.all %}
+
+                    <tr class="clickable" data-url="{% url 'autopilot_app:mission_detail' ts.idMission_id %}">
+                        <th scope="row">{{ts.idMission_id}}</th>
+                        <td>{{ts.annee}}</td>
+                        <td>{{ts.semaine}}</td>
+                        <td>{{ts.tempsPasse}}</td>
+
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+
+
+{% endblock %}

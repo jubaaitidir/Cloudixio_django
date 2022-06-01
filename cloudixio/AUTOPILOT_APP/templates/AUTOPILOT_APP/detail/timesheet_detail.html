@@ -1,0 +1,53 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+<!-- {% load bootstrap5 %} -->
+
+{% block bootstrap5_content %}
+<div class="container">
+    <h1>{% block title %}Détail Timesheet{% endblock %}</h1>
+    <table class="table table-info table-hover table-striped">
+        <!-- <thead>
+            <tr>
+                <th scope="col">Nom Consultant</th>
+                <th scope="col">{{consultant.nom}}</th>
+            </tr>
+        </thead> -->
+        <tbody>
+            
+            <tr> 
+                <th scope="col">ID Timesheet</th>
+                <td>{{timesheet.idTimeSheet}}</td>
+            </tr>
+      
+            <tr>
+                <th scope="col">ID Consultant </th>
+                <td>{{timesheet.idConsultant}}</td>
+            </tr>
+            <tr>
+                <th scope="col">ID Mission</th>
+                <td>{{timesheet.idMission}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Annee</th>
+                <td>{{timesheet.annee}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Semaine</th>
+                <td>{{timesheet.semaine}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Temps passé</th>
+                <td>{{timesheet.tempsPasse}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{%extends 'AUTOPILOT_APP/base.html'%}
+
+{% load bootstrap5 %}
+{% load static %}
+
+{% block bootstrap5_content %}
+
+
+
+<div class="my-5 py-2 container bg-primary border rounded-10" style="--bs-bg-opacity:.8;">
+
+    <div class="row justify-content-center ">
+        <div class="d-flex py-5 px-5 align-content-center col-sm-10 col-md-6 text-light justify-content-center">
+            <img src= "{% static 'AUTOPILOT_APP/logo_cloudixIO.png' %}" class="rounded mx-auto d-block" alt="...">
+        </div>
+        <div class="col-sm-10 col-md-6 text-light">
+            <div class="d-flex fs-1 text-light justify-content-center">{{context.message|upper}}</div>
+            <h3 class="text-success">{{context.register}}</h3>
+            <h3 class="text-danger">{{context.error}}</h3>
+            <form action="/connexion/" method="post">
+                {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{context.form|crispy}}
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-success">Se connecter</button>
+            </form>
+        </div>
+     
+    </div>
+</div>
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+
+{% endblock %}

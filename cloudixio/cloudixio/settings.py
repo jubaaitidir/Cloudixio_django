@@ -36,7 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'AUTOPILOT_APP.apps.AutopilotAppConfig',
     'bootstrap5',
-]
+    "crispy_forms",
+    "crispy_bootstrap5",
+    ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +81,7 @@ WSGI_APPLICATION = 'cloudixio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'autopilot.db3',
     }
 }
 

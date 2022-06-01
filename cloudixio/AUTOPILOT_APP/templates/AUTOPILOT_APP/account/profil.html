@@ -4,17 +4,44 @@
 
 {% block bootstrap5_content %}
 <div class="container">
-    <h1>{% block title %}Timesheet du consultant{% endblock %}</h1>
+    <h1>{% block title %}{{titre}}{% endblock %}</h1>
+    <table id="consultant" class="table table-primary table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">nom</th>
+                <th scope="col">prenom</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <td>{{consultant.nom}}</td>
+                <td>{{consultant.prenom}}</td>
+                <td>{{consultant.email}}</td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+<div class="container">
+    <h1>Timesheets du consultant</h1>
 
 
     <div class="container">
-        <div class="row bg-success text-light h1">
-            <div class="col">{{consultant.nom}}</div>
-            <div class="col">{{consultant.prenom}}</div>
-        </div>
+
         <div class="row">
-            
-            <table class="table table-light table-hover">
+
+            <table class="table table-success table-hover" id="consultant_timesheets">
                 <thead>
                     <tr>
                         <th scope="col">ID Mission</th>
@@ -25,7 +52,7 @@
                 <tbody>
                     {%for ts in consultant.timesheet_set.all %}
 
-                    <tr>
+                    <tr class="clickable" data-url="{% url 'autopilot_app:mission_detail' ts.idMission_id %}">
                         <th scope="row">{{ts.idMission_id}}</th>
                         <td>{{ts.annee}}</td>
                         <td>{{ts.semaine}}</td>
