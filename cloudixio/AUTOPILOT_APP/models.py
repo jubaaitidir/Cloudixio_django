@@ -4,17 +4,43 @@
 from django.db import models
 import datetime
 
+class Competences(models.Model):
+    idCompetence = models.AutoField(db_column='idCompetence', primary_key=True)  # Field name made lowercase.
+    description = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'competences'
+
+    def __str__(self):
+        return self.description
+    
 class Consultant(models.Model):
     idConsultant = models.fields.BigAutoField(primary_key=True,null=False)
     nom = models.fields.CharField(max_length=100, default='NULL')
     prenom = models.fields.CharField(max_length=100, default='NULL')
     # email= models.fields.EmailField(default='')
     # password= models.fields.CharField(max_length=100)
+    competences= models.ManyToManyField(Competences, through="ConsultantsCompetences")
     class Meta:
         managed = False
         db_table = 'consultant'
     def __str__(self):
         return str(self.prenom+" "+self.nom)
+
+
+
+    
+class ConsultantsCompetences(models.Model):
+    idConsultantsCompetences = models.AutoField(blank=True, primary_key=True)
+    idCompetence = models.ForeignKey(Competences, models.DO_NOTHING, db_column='idCompetence')  # Field name made lowercase.
+    idConsultant = models.ForeignKey(Consultant, models.DO_NOTHING, db_column='idConsultant')  # Field name made lowercase.
+    
+
+    class Meta:
+        managed = False
+        db_table = 'consultantsCompetences'
+
 
 
 class MissionsType(models.Model):

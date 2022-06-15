@@ -1,0 +1,23 @@
+{% extends "AUTOPILOT_APP/base.html" %}
+{% load bootstrap5 %}
+
+{% block bootstrap5_content %}
+{% load crispy_forms_tags %}
+
+    <form method="GET">
+        <!-- {% csrf_token %} -->
+        {% load crispy_forms_tags %}
+        {{ filtres.form | crispy}}
+        <input type="submit" value="filtrer"> 
+    </form>
+    {% for obj in filtres.qs%}
+    {{ obj.idConsultant }}-{{ obj.nom }} - {{ obj.prenom }}<br />
+    {% endfor %}
+
+
+
+{% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+
+{% endblock %}
+

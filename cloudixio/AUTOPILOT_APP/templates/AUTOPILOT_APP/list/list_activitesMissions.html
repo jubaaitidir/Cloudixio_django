@@ -3,82 +3,49 @@
 <!-- {% load bootstrap5 %} -->
 
 {% block bootstrap5_content %}
+{% load crispy_forms_tags %}
+
 <div class="container">
-    <h1>{% block title %}{{titre}}{% endblock %}</h1>
-<div class="row">
-    <div class="col-md-9 col-md-push-1 ">
-        <h3 class="text-center">Filters</h3>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <div class="input-group">
-                        <div class="input-group-btn search-panel">
-                            {{consultants}}
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Filtres</h3>
+            {{consultants|crispy}}
+        </div>
 
-                            <!-- <select class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <option>All</option>
-                                {%for consultant in consultants %}
+        <div class="col-lg-8">
+            <h1>{% block title %}{{titre}}{% endblock %}</h1>
+            <table id="list_missions" class="table table-info table-hover table-striped">
+                <thead>
+                    <tr>
 
-                                <option>{{consultant}}</option>
+                        <th scope="col">ID Activite Mission</th>
+                        <th scope="col">Activite Type</th>
+                        <th scope="col">Mission</th>
+                        <th scope="col">Consultant</th>
+                        <th scope="col">TJM</th>
+                        <th scope="col">Estimation charge</th>
 
-                                {%endfor%}
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for actMission in activitesMissions %}
+                    <tr>
+                        <th scope="row">{{actMission.idActivitesMissions}}</th>
+                        <td>{{actMission.idActivitesType}}</td>
+                        <td>{{actMission.idMission}}</td>
+                        <td>{{actMission.idConsultant}}</td>
+                        <td>{{actMission.tjm}}</td>
+                        <td>{{actMission.estimationCharge}}</td>
 
-                            </select> -->
-                        </div>
+                    </tr>
+                    {%endfor%}
 
-                        <!-- <input type="hidden" name="search_param" value="all" id="search_param">
-                        <input type="text" class="form-control" name="x" placeholder="Search term...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span> -->
-                    </div>
-                </div>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
-
 </div>
 
-
-
-
-
-
-
-
-
-
-    <table id="list_missions" class="table table-info table-hover table-striped">
-        <thead>
-            <tr>
-
-                <th scope="col">ID Activite Mission</th>
-                <th scope="col">Activite Type</th>
-                <th scope="col">Mission</th>
-                <th scope="col">Consultant</th>
-                <th scope="col">TJM</th>
-                <th scope="col">Estimation charge</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            {%for actMission in activitesMissions %}
-            <tr>
-                <th scope="row">{{actMission.idActivitesMissions}}</th>
-                <td>{{actMission.idActivitesType}}</td>
-                <td>{{actMission.idMission}}</td>
-                <td>{{actMission.idConsultant}}</td>
-                <td>{{actMission.tjm}}</td>
-                <td>{{actMission.estimationCharge}}</td>
-
-            </tr>
-            {%endfor%}
-
-        </tbody>
-    </table>
-</div>
 
 
 

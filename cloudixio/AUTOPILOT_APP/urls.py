@@ -1,4 +1,6 @@
-from django.urls import path
+
+from django.urls import path, re_path
+
 from . import views
 
 app_name='autopilot_app'
@@ -8,7 +10,7 @@ urlpatterns=[
     # path('<int:pk>/results', views.ResultsView.as_view(), name='mission'),
     
     #Lists URLS
-    path('consultants/', views.ListConsultantView.as_view(), name='consultants'),
+    re_path(r'^consultants/$', views.ListConsultantView.as_view(), name='consultants'),
     path('missions/', views.ListMissionView.as_view(), name='missions'),
     path('timesheets/', views.ListTimesheetView.as_view(), name='timesheets'),
     path('missionsType/', views.ListMissionTypeView.as_view(), name='missionsType'),
@@ -28,4 +30,8 @@ urlpatterns=[
     path('<int:pk>/profil/', views.ProfilView.as_view(), name='profil'),
     path('inscription/', views.inscription, name='inscription'),
     path('connexion/', views.connexion, name='connexion'),
+    
+    
+    #Test filter
+    path('list/', views.list_consultants)
 ]

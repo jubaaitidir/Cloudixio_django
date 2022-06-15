@@ -3,28 +3,59 @@
 {% load bootstrap5 %}
 
 {% block bootstrap5_content %}
+{% load crispy_forms_tags %}
 <div class="container">
-    <h1>{% block title %}Consultants{% endblock %}</h1>
-    <table id="list_consultants" class="table table-primary table-hover table-striped">
-        <thead>
-            <tr>
-                <th scope="col">ID Consultant</th>
-                <th scope="col">nom</th>
-                <th scope="col">prenom</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for consultant in consultants %}
-            <tr class="clickable" data-url="{% url 'autopilot_app:consultantTimesheets' consultant.idConsultant %}"> 
-                <th scope="row">{{consultant.idConsultant}}</th>
-                <td>{{consultant.nom}}</td>
-                <td>{{consultant.prenom}}</td>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Filtres</h3>
+            
 
-            </tr>
-            {%endfor%}
+            <form  method="GET">
+                <!-- {% csrf_token %} -->
+                {% load crispy_forms_tags %} 
+                {{filtres.form|crispy}}
+               
+                <button type="submit" class="btn btn-success d-flex justify-content-center">filtrer</button>
+            </form>
 
-        </tbody>
-    </table>
+        </div>
+
+        <div class="col-lg-8">
+            <h1>{% block title %}Consultants{% endblock %}</h1>
+            <table id="list_consultants" class="table table-primary table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID Consultant</th>
+                        <th scope="col">nom</th>
+                        <th scope="col">prenom</th>
+                        <th scope="col">compétences</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for consultant in filtres.qs %}
+                    <tr class="clickable"
+                        data-url="{% url 'autopilot_app:consultantTimesheets' consultant.idConsultant %}">
+                        <th scope="row">{{consultant.idConsultant}}</th>
+                        <td class="nom">{{consultant.nom}}</td>
+                        <td>{{consultant.prenom}}</td>
+                        <td>
+                            {%for comp in consultant.competences.all%}
+
+                            {%if comp%}
+                            {{comp}}
+
+                            {%endif%}
+
+                            {%endfor%}
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 
@@ -32,7 +63,5 @@
 
 {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
 
-
-</div>
 
 {% endblock %}

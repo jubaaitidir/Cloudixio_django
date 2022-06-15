@@ -3,6 +3,7 @@
 {% load bootstrap5 %}
 
 {% block bootstrap5_content %}
+{% load crispy_forms_tags %}
 <div class="text-center h2">{% block title %}{{titre}}{% endblock %}</div>
 <div class="container ">
     
@@ -10,23 +11,23 @@
         
         <div class="col justify-content-center">
             {% csrf_token %}
-            {{form.idConsultant}}
+            {{form.idConsultant|as_crispy_field}}
         </div>
         <div class="col justify-content-center">
             {% csrf_token %}
-            {{form.idMission}}
+            {{form.idMission|as_crispy_field}}
         </div>
         <div class="col justify-content-center">
             {% csrf_token %}
-            {{form.annee}}
+            {{form.annee|as_crispy_field}}
         </div>
         <div class="col justify-content-center">
             {% csrf_token %}
-            {{form.semaine}}
+            {{form.semaine|as_crispy_field}}
         </div>
         <div class="col justify-content-center">
             {% csrf_token %}
-            {{form.tempsPasse}}
+            {{form.tempsPasse|as_crispy_field}}
         </div>
     </div>
     <div class="row">

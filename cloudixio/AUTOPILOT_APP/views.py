@@ -1,17 +1,26 @@
 
+# from asyncio import constants
+
+# from urllib import request
+
+
+
+
+
 from django.views import generic
 from django.urls import reverse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
 from AUTOPILOT_APP.models import Consultant, Mission, TimeSheet, MissionsType, ActivitesType, ActivitesMissions
+from .filters import ConsultantFilter
 
-
-from .forms import FiltresActivitesMissions, FiltresTimeSheet, FormInscription, FormConnexion
+from .forms import FiltresActivitesMissions, FiltresConsultant, FiltresTimeSheet, FormInscription, FormConnexion
 
 
 def hello(request):
     consultants = Consultant.objects.all()
+    
     return HttpResponse(f"""<h1>Hello Cloudixio<h1>
                         <h2>my favorite consultants: </h2>
                         <ul>
@@ -29,16 +38,65 @@ def about(request):
 class DetailConsltantTimesheets(generic.DetailView):
     model=Consultant
     template_name='AUTOPILOT_APP/filter/consultant_timesheets.html'
-
+         
 
 
 class ListConsultantView(generic.ListView):
+    
+    model= Consultant
     template_name ='AUTOPILOT_APP/list/list_consultants.html'
-    context_object_name = 'consultants'
-    def get_queryset(self):
-        return Consultant.objects.all()
+    #context_object_name = 'consultants' 
 
+    def get_context_data(self, **kwargs):
+    
+        context = super().get_context_data(**kwargs)
+        context['titre'] = 'Liste des consultants'
+        context['filtres']= ConsultantFilter(self.request.GET, queryset=self.get_queryset())
 
+        
+        return context
+    
+    
+  
+    # def get(self, request, *args, **kwargs):
+    #     # self.form = FiltresConsultant(self.request.GET or None,)
+    #     return super(ListConsultantView, self).get(request, *args, **kwargs)
+
+    # def post(self, request, *args, **kwargs):
+    #     if self.request.POST:
+        
+    #         form = FiltresConsultant(self.request.POST)
+    #         self.form=form
+    #         if form.is_valid():
+                
+    #             print(form.cleaned_data['idConsultant'])
+    #     else :
+    #         self.form=FiltresConsultant()
+    #     return super(ListConsultantView, self).get(request, *args, **kwargs)
+            
+  
+  
+  
+    # def get_queryset(self):
+    #     consultants=Consultant.objects.all()
+        
+    #     if(self.request.method=="POST"):
+            
+
+    #         # nom = self.request.POST.get('nom')
+
+    #         # self.form.fields['nom'].choices = [(nom, nom)]
+
+    #         if(self.form.is_valid()):
+    #             consultants= Consultant.objects.filter(idConsultant=self.form.cleaned_data['idConsultant'])
+    #             print(consultants)
+     
+ 
+    #     return consultants
+   
+
+   
+     
 
 class ListMissionView(generic.ListView):
     template_name= 'AUTOPILOT_APP/list/list_missions.html'
@@ -49,9 +107,9 @@ class ListMissionView(generic.ListView):
         
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+       
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+   
         context['titre'] = 'Liste des missions'
         return context
 
@@ -66,9 +124,9 @@ class ListTimesheetView(generic.ListView):
         return TimeSheet.objects.all()
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+      
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+ 
         context['titre'] = 'Liste de Timesheets'
         context['form'] = FiltresTimeSheet()
         return context
@@ -82,9 +140,9 @@ class ListMissionTypeView(generic.ListView):
         return MissionsType.objects.all()
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+
         context['titre'] = 'Liste de types missions'
         return context
 
@@ -98,9 +156,9 @@ class ListActivitesTypeView(generic.ListView):
         
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+    
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+
         context['titre'] = 'Liste des types d\'activites'
         return context
     
@@ -113,9 +171,9 @@ class ListActivitesMissionsView(generic.ListView):
         
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+      
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+       
         context['titre'] = 'Liste des activites missions'
         context['consultants']= FiltresActivitesMissions()
         return context
@@ -143,9 +201,9 @@ class DetailTypeMissionView(generic.DetailView):
     template_name='AUTOPILOT_APP/detail/missionType_detail.html'
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+    
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+      
         context['titre'] = 'Détail type mission'
         return context
   
@@ -154,9 +212,9 @@ class DetailActiviteTypeView(generic.DetailView):
     template_name='AUTOPILOT_APP/detail/activiteType_detail.html'
     
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+        
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
+    
         context['titre'] = 'Détail type activité'
         return context
 
@@ -236,6 +294,11 @@ class ProfilView(generic.DetailView):
         context['titre'] = 'Profil du consultant'
         return context
     
-    
-    
+
+
+#Test filter 
+
+def list_consultants(request):
+    f = ConsultantFilter(queryset=Consultant.objects.all())
+    return render(request, 'AUTOPILOT_APP/test.html', {'filter': f})
    
